@@ -1,0 +1,25 @@
+<script> 
+
+let ni = Number(prompt("Digite o numero inicial: "))
+
+let nf = Number(prompt("Digite o numero final: "))
+
+i = ""
+
+if(ni>nf){
+    alert("Impossivel calcular, número final deve ser maior que o número inicial")
+}
+else if(ni == nf){
+    if(ni % 2 == 1){
+        alert("numero inicial = ao numero final e o mesmo é impar")
+    }
+}
+else{
+    for(i=ni; i<=nf; i++) { 
+         if(i % 2 == 0){
+            alert(`PAR: ${i}`)
+         }
+    }
+}
+
+</script>
