@@ -1,0 +1,13 @@
+<script> 
+
+let numero = parseInt( prompt("Digite o numero da tabuada: "))
+let n=1
+
+while(n <= 20)
+{
+    console.log (`${n} x ${numero} = ${numero * n}`)
+    n=n+1
+    
+}
+
+</script>
