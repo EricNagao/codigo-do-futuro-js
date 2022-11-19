@@ -49,4 +49,11 @@ console.log (crescent)
  const deCrescent = num.sort((a, b) => b-a)
 console.log (deCrescent)
 
+//reduce - reduz o array a um resultado de uma operação matematica
 
+const numbers = [1,7,2,66]
+
+const soma = numbers.reduce((valorAtual, valorAnterior) => {
+  return valorAnterior+valorAtual
+})
+console.log(soma)
