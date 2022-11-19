@@ -21,4 +21,4 @@ duração: 120,
 
 const {ID, titulo, descrição, duração} = filmes
 
-filmes.map (filmes => console.log (filmes.descrição))
+filmes.map (filmes => console.log (filmes.descrição ))
