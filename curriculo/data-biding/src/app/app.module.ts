@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { ExercicioDataBindingComponent } from './exercicio-data-binding/exercicio-data-binding.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExercicioDataBindingComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule

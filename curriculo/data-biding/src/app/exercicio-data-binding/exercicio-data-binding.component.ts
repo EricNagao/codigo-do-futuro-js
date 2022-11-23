@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class ExercicioDataBindingComponent implements OnInit {
 
   imageURL= "https://m.media-amazon.com/images/I/61Foj5U3jqL._AC_SX679_.jpg"
+  inicialValue = 'Valor Inicial';
+  isDisabled = true;
 
-  constructor() { }
+  constructor() {
+    setTimeout(() => {
+      this.isDisabled = false;
+      console.log ('isDisabled: ', this.isDisabled);
+    }, 3000 );
+   }
 
   ngOnInit(): void {
   }
