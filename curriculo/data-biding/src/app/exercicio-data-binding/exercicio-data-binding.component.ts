@@ -7,8 +7,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ExercicioDataBindingComponent implements OnInit {
 
-  //@Input() palavra: string;
-  //@Input() color: string;
+  @Input() palavra: any;
+  @Input() color: any;
+  @Output() clicado = new EventEmitter
 
   imageURL= "https://m.media-amazon.com/images/I/61Foj5U3jqL._AC_SX679_.jpg"
   inicialValue = 'Valor Inicial';
@@ -16,7 +17,6 @@ export class ExercicioDataBindingComponent implements OnInit {
   accessibilyTest ="Um texto acessivel"
   valorDoInput= ''
 
-  @Output() clicado = new EventEmitter
 
   constructor() {
     setTimeout(() => {
@@ -42,6 +42,9 @@ export class ExercicioDataBindingComponent implements OnInit {
   onClickBotaoEissor(){
     console.log("Devo emitir info do compo. PAI");
     this.clicado.emit();
+  }
+  eventoRecebido($event:any){
+    console.log('AppComponemt: Evento recebido!', $event)    
   }
 
 }

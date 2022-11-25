@@ -1,10 +1,9 @@
 <app-header [title] = "title"> </app-header> 
 
 <app-exercicio-data-binding>
-
-<!-- <p> [palavra] : {{palavra} </p> -->
-<!-- <p> [color] : {{color}} </p> -->
-
+ [palavra] = "palavra"
+ [color] = "color"
+ (clicado) = "eventoRecebido($event)"
 </app-exercicio-data-binding>
 
 <app-home> </app-home>
