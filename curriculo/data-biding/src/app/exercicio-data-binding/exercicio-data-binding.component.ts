@@ -7,8 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ExercicioDataBindingComponent implements OnInit {
 
- // @Input() palavra: String;
- // @Input() color: string;
+  //@Input() palavra: string;
+  //@Input() color: string;
 
   imageURL= "https://m.media-amazon.com/images/I/61Foj5U3jqL._AC_SX679_.jpg"
   inicialValue = 'Valor Inicial';
@@ -41,6 +41,7 @@ export class ExercicioDataBindingComponent implements OnInit {
   
   onClickBotaoEissor(){
     console.log("Devo emitir info do compo. PAI");
+    this.clicado.emit();
   }
 
 }
