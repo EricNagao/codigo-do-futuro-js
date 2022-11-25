@@ -41,10 +41,7 @@ export class ExercicioDataBindingComponent implements OnInit {
   
   onClickBotaoEissor(){
     console.log("Devo emitir info do compo. PAI");
-    this.clicado.emit();
-  }
-  eventoRecebido($event:any){
-    console.log('AppComponemt: Evento recebido!', $event)    
+    this.clicado.emit('oh no oh nooo noo ononoon');
   }
 
 }

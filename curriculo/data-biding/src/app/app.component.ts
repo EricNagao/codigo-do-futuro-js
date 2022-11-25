@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
  
   title = 'Seja Bem Vindo - WellCome'
-  favoriteColor = 'gray';
+  favoriteColor = 'black';
+  palavra = 'Star'
+  color ='gray'
+
+  constructor(){}
+
+    eventoRecebido($event:any){
+      console.log('AppComponemt: Evento recebido!', $event);
+    }
 }
