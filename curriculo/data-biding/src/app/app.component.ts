@@ -17,4 +17,8 @@ export class AppComponent {
     eventoRecebido($event:any){
       console.log('AppComponemt: Evento recebido!', $event);
     }
+
+    onValorAtualizadoContador(novoValor:any){
+      console.log('onValorAtualizadoContador', novoValor);
+    }
 }

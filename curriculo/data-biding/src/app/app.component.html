@@ -1,11 +1,21 @@
 <app-header [title] = "title"> </app-header> 
 
-<app-exercicio-data-binding
+<app-exercicio-contador
+[valor] = "10"
+(valorMudou)="onValorAtualizadoContador($event)"
+> 
+
+</app-exercicio-contador>
+
+
+
+<!-- <app-exercicio-data-binding
  [palavra] = "palavra"
  [color] = "color"
  (clicado) = "eventoRecebido($event)"
 >
 
-</app-exercicio-data-binding>
+</app-exercicio-data-binding>-->
+
 
 <app-footer> </app-footer>
