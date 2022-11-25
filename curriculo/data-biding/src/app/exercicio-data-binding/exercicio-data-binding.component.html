@@ -1,16 +1,34 @@
+<!-- EXEMPLOS DE EVENT BINDING -->
 
-<img [src] = "imageURL">
+<button (click)="onClickBotaoEissor()"> 
+  Emirit informação de click
+</button><br>
 
-  <br>
 
-  <button [disabled]="isDisabled"> Clique em mim!! </button>
-  
-  <br>
+<button (click) = "onClick($event)"> 
+  Clique Aqui
+</button> <br><br>
+
+<input type="text" [value]="valorDoInput" 
+(keyup)="digitouAlgo($event)"> <br><br>
+
+Valor Do Input: {{valorDoInput}}
+
+<hr>
+
+
+<!-- EXEMPLOS DE PROPERTY BINDING -->
+<img [src] = "imageURL">  <br>
+
+  <button [disabled]="isDisabled">
+    Clique em mim!! 
+  </button> <br> <br>
 
   <p aria-label="Um outro texto qqr para o leitor de tela"> 
     Um Texto QqR :D
-  </p>
+  </p> <br>
 
-  <br>
-<input type="text" [value] = "inicialValue"> 
+
+<input type="text"
+[value] = "inicialValue"> 
  
