@@ -44,4 +44,8 @@ export class ExercicioDataBindingComponent implements OnInit {
     this.clicado.emit('oh no oh nooo noo ononoon');
   }
 
+  onValorAtualizadoContador(novoValor:any){
+    console.log('onValorAtualizadoContador', novoValor);
+  }
+
 }

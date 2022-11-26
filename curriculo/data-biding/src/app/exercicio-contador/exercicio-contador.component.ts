@@ -19,5 +19,6 @@ export class ExercicioContadorComponent {
     this.valor = this.valor -1;
     this.valorMudou.emit(this.valor);
   }
+ 
 
 }
