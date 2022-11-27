@@ -1,1 +1,25 @@
-<p>exercicio-diretirvas works!</p>
+<p> valor atual de onde deve exibir: {{deveExibir}} </p>
+
+<button (click)="trocarValor()"> 
+    Troca Valor
+</button><br>
+<br>
+<div *ngIf = "deveExibir; esle elseblock"> 
+    Olá, estou dentro do ngIf  
+</div>
+
+<div *ngIf = "!deveExibir"> 
+  Vou ser exibido quando o deveExibir for falso!
+</div><br>
+
+<ng-template #elseblock> 
+    Vou ser exibido quando o deveExibir for falso!
+</ng-template>
+
+
+<br><br><br>
+<hr>
+
+<div *ngIf = "soma(5, 7) > 10 "> 
+  Exibe se a soma for maior que 10
+</div>
