@@ -16,10 +16,29 @@
     Vou ser exibido quando o deveExibir for falso!
 </ng-template>
 
+<div *ngIf ="deveExibir; then thenBlock else elseBlock2"></div>
+<ng-template #thenBlock> Bloco True do ng template</ng-template>
+<ng-template #elseBlock2> Bloco False do ng template</ng-template>
 
-<br><br><br>
-<hr>
+<br><br>
 
 <div *ngIf = "soma(5, 7) > 10 "> 
   Exibe se a soma for maior que 10
 </div>
+
+
+<hr>
+
+<ul>
+  <li *ngFor = " let fruta of listaFrutas"> {{fruta}} </li>
+</ul><br>
+
+<p *ngFor = " let fruta of listaFrutas"> {{fruta}} </p>
+
+
+<ul>
+   <li *ngFor="let carro of carrosLista; let i = index">
+     {{i+1}} - {{ carro.placa }} - {{carro.cor}}
+  </li>
+</ul>
+

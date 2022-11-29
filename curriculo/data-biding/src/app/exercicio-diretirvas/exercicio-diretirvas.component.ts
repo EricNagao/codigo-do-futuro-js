@@ -7,6 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExercicioDiretirvasComponent {
 
+  listaFrutas =[
+    'Maçã',
+    'Banana',
+    'Abacate',
+    'pera',
+    'Ameixa',
+    'Jabuticaba',
+  ];
+
+    carrosLista =[{
+      placa: 'SDF-2344',
+      cor: "PRETO",
+    },{
+      placa:'JJGS-4344',
+      cor:'AZUL',
+    },{
+      placa:'KPP-0003',
+      cor:'CINZA',
+    },{
+      placa: 'ROO-2332',
+      cor:'ROXO ',
+    }]
+  
   deveExibir=true;
 
   trocarValor(){
@@ -17,4 +40,6 @@ export class ExercicioDiretirvasComponent {
     return n1+n2;
   }
 
+
 }
+;
