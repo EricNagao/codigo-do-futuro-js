@@ -54,8 +54,10 @@
    <h2> {{memesAgrupados.categoria}} </h2>  
       
     <div *ngFor=" let meme of memesAgrupados.memes; let par = even">
-      <img [src] = "PREFIXO_IMAGEM_URL + meme.imagemURL" *ngIf="par">
-      <h2 *ngIf="par"> PAR </h2>
+      <img [src] = "PREFIXO_IMAGEM_URL + meme.imagemURL" *ngIf="par; else blockPar">
+      <ng-template #blockPar>
+        <h2 *ngIf="par"> PAR </h2>
+      </ng-template>    
     </div>
 
   </li>
