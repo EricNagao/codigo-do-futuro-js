@@ -42,3 +42,23 @@
   </li>
 </ul>
 
+<hr>
+<br>
+
+<h1> Resolução do exercicio :D</h1>
+
+
+<ul>
+  <li *ngFor="let memesAgrupados of MEMES_AGRUPADOS_POR_CATEGORIA" >
+
+   <h2> {{memesAgrupados.categoria}} </h2>  
+      
+    <div *ngFor=" let meme of memesAgrupados.memes; let par = even">
+      <img [src] = "PREFIXO_IMAGEM_URL + meme.imagemURL" *ngIf="par">
+      <h2 *ngIf="par"> PAR </h2>
+    </div>
+
+  </li>
+</ul>
+
+
