@@ -6,7 +6,15 @@
 <button (click)="tornarVerde()"> Mudar de cor</button>
 <p [ngClass]="deveSerVerde? 'verde' : 'vermelho'">testando </p>
 
-<p [ngClass]="deveSerVerde2? 
-'verde' : deveSerVerde
-'vermelho': deveSerVerde2
-">testando2 </p>
+<p [ngClass]="{
+'verde': deveSerVerde,
+'vermelho': !deveSerVerde
+}"> testando2 </p>
+
+<p [class]="deveSerVerde? 'verde':'vermelho'"> 
+  testando propety binding class
+</p>
+
+<p [class.verde]="deveSerVerde"> 
+  testando propety binding class
+</p>
