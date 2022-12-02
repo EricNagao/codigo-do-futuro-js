@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-exercicio-ng-class',
   templateUrl: './exercicio-ng-class.component.html',
-  styleUrls: ['./exercicio-ng-class.component.scss']
+  styleUrls: ['./exercicio-ng-class.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 
 export class ExercicioNgClassComponent implements OnInit {
