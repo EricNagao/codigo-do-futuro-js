@@ -10,12 +10,11 @@ export class HeaderComponent implements OnChanges, OnInit, AfterViewInit {
   @Input() title = 'WelLcOmE - Bem Vindo';
 
   constructor() { }
+  ngOnInit(): void {
+  }
 
   ngOnChanges(){
     console.log('ngOnChanges');
-  }
-
-  ngOnInit(): void {
   }
 
   ngAfterViewInit(){
