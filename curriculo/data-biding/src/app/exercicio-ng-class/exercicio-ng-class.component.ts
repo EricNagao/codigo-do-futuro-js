@@ -4,7 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'app-exercicio-ng-class',
   templateUrl: './exercicio-ng-class.component.html',
   styleUrls: ['./exercicio-ng-class.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated,
 })
 
 export class ExercicioNgClassComponent implements OnInit {
