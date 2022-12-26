@@ -35,7 +35,8 @@ export class ExtratpComponent implements OnInit {
 
   transacoes: Transacao[] | undefined;
   estaCarregando: boolean | undefined;
-  erroNoCarregamento: boolean | undefined
+  erroNoCarregamento: boolean | undefined;
+  pagina = 1 ;
   
   constructor(
     private extratoService: ExtratoService
@@ -50,10 +51,13 @@ export class ExtratpComponent implements OnInit {
     this.estaCarregando = true;
     this.erroNoCarregamento=false;
 
-    this.extratoService.getTransacoes()
+      const page = 1;
+
+    this.extratoService.getTransacoes(this.pagina)
     .pipe(
       finalize(()=> this.estaCarregando =false)
-    )
+    
+      )
       .subscribe(
         response => this.onSucces(response),
         error => this.onError(error),
@@ -69,4 +73,15 @@ export class ExtratpComponent implements OnInit {
     this.estaCarregando =false;
     this.erroNoCarregamento =true;
   }
+
+  paginaAnterior(){
+    this.pagina =this.pagina -1;
+    this.carregarExtrato();
+  }
+
+  proximaPagina(){
+    this.pagina =this.pagina + 1;
+    this.carregarExtrato();
+  }
+
 }

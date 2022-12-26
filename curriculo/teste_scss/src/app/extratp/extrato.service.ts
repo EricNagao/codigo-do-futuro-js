@@ -14,8 +14,12 @@ import { Transacao } from './extratp.interface';
         private http: HttpClient,
       ) { }
       
-   getTransacoes(){
-    return this.http.get<Transacao[]> (`${this.API_URL}/transacoes`)
+   getTransacoes(page: number){
+    return this.http.get<Transacao[]> (`${this.API_URL}/transacoes`, {
+      params: {
+        _page: String(page),
+      }
+    })
    }
 }
 

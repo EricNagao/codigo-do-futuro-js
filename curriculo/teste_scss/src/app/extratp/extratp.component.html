@@ -6,24 +6,34 @@
   
   <div *ngIf="erroNoCarregamento">
     <h2> Deu erro, falha no carregamento :/ </h2>
-    <button > Tentar novamente </button>
+    <button (click)="carregarExtrato()"> Tentar novamente </button>
   </div>
 
-  <table class="table table-hover" *ngIf="!estaCarregando">
-    <tr>
-      <th>ID </th>
-      <th>Data </th>
-      <th>Descricao </th>
-      <th>Valor </th>
-      <th>Categoria </th>
-    </tr>
+  <div> 
+    
+    <button (click)="paginaAnterior()"[disabled]="pagina ===1"> pagina anterior</button> 
+    <button (click)="proximaPagina()">Próxima pagina </button>
+    <p>Página atual: {{pagina}} </p>
 
-    <tr *ngFor="let transacao of transacoes"> 
-        <td>{{ transacao.id }}</td>
-        <td>{{transacao.data | date}}</td>
-        <td>{{transacao.descricao}}</td>
-        <td>{{transacao.valor | currency:"BRL"}}</td>
-        <td>{{transacao.categoria}}</td>
-      </tr> 
-  </table>
+    <table class="table table-hover" *ngIf="!estaCarregando">
+
+      <tr>
+        <th>ID </th>
+        <th>Data </th>
+        <th>Descricao </th>
+        <th>Valor </th>
+        <th>Categoria </th>
+      </tr>
+  
+      <tr *ngFor="let transacao of transacoes"> 
+          <td>{{ transacao.id }}</td>
+          <td>{{transacao.data | date}}</td>
+          <td>{{transacao.descricao}}</td>
+          <td>{{transacao.valor | currency:"BRL"}}</td>
+          <td>{{transacao.categoria}}</td>
+        </tr> 
+    </table>
+  
+</div>
+
 </div>
