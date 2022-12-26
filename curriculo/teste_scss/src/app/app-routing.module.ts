@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContatosComponent } from './contatos/contatos.component';
+import { DetalhesContatoComponent } from './contatos/detalhes-contato/detalhes-contato.component';
 import { ExtratpComponent } from './extratp/extratp.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +21,13 @@ const routes: Routes = [{
       redirectTo: 'home',
       pathMatch: 'full',
     },{
+    path: 'contatos',
+    component: ContatosComponent,
+    },{
+      path: 'contatos/:id',
+      component: DetalhesContatoComponent
+    },
+    {
       path: '',
       component: NaoEncontradoComponent,
     }];
