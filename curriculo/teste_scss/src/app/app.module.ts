@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ContatosComponent } from './contatos/contatos.component';
 import { DetalhesContatoComponent } from './contatos/detalhes-contato/detalhes-contato.component';
+import { FormsModule } from '@angular/forms';
 
 
 registerLocaleData(localePt, 'pt');
@@ -39,6 +40,7 @@ registerLocaleData(localePt, 'pt');
             BrowserModule,
             AppRoutingModule,
             HttpClientModule,
+            FormsModule
             
         ],
 

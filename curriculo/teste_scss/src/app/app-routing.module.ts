@@ -7,10 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
 
-const routes: Routes = [{
-      path: 'login',
-      component: LoginComponent,
-    }, {
+const routes: Routes = [ {
       path: 'home',
       component: HomeComponent,
     }, {
@@ -20,6 +17,9 @@ const routes: Routes = [{
       path: '',
       redirectTo: 'home',
       pathMatch: 'full',
+    },{
+      path: 'login',
+      component: LoginComponent,
     },{
     path: 'contatos',
     component: ContatosComponent,
