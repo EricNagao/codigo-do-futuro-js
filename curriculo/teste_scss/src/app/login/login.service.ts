@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import { of, throwError } from 'rxjs';
+import { delay, mergeMap, of, tap, throwError, timer } from 'rxjs';
+import { AuthService } from '../shared/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(  ) { }
+  constructor(
+    private authService: AuthService,
+  ) { }
   
 email: any ;
 password: any ;
@@ -24,9 +27,16 @@ password: any ;
           },  
 
           token:  '!3121ijjh2nn3b12kasD!@',
-        } ); 
+        }) .pipe(
+          delay(2000),
+          tap(response=>{
+            this.authService.setUsuario(response.usuario);
+          })
+          
+        );
   }
-  throwError('User / Senha Invalid');   
+  return timer(2000).pipe (
+    mergeMap(() => throwError ('User / Senha Invalid')));   
 
 }
 

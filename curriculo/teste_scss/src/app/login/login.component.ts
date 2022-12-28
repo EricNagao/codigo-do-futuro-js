@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
+
 import { LoginService } from './login.service';
 
 @Component({
@@ -10,71 +10,73 @@ import { LoginService } from './login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+export class LoginComponent { 
 
+  @ViewChild('emailInput') emailInput: ElementRef | any;
+  @ViewChild('passwordInput') passwordInput: ElementRef | any;
 
+  email: any | undefined;
+  password: any | undefined;
 
-export class LoginComponent{
+  estaCarregando: boolean| undefined;
+  erroNoLogin: boolean| undefined;
 
-  @ViewChild('emailInput') emailInput: any;
-  @ViewChild('passwordInput') passwordInput: any;
-
-    email: any 
-    password: any 
-
-    estaCarregando: boolean | undefined;
-    erroNoLogin: boolean | undefined;
-    response: any;
-    error: any;
 
   constructor(
     private loginService: LoginService,
     private router: Router,
   ) { }
-    ngOnInit(): void 
-    {
-  }
 
-  onSubmit(form: any){
-      if(!form.valid){
-        form.controls.email.markAsTouched();
-        form.controls.password.markAsTouched();
+  onSubmit(form:any) {
+    this.erroNoLogin = false;
 
-        if(form.controls.email.invalid){
-          this.emailInput.nativeElement.focus();
-          return
-        }
-        if (form.controls.password.invalid) {
-          this.passwordInput.nativeElement.focus();
-          return;
-        } 
+    if (!form.valid) {
+      form.controls.email.markAsTouched();
+      form.controls.password.markAsTouched();
 
-        console.log(form)
-        console.log('Formulario inválido doido!')
-        return ;
+      if (form.controls.email.invalid) {
+        this.emailInput.nativeElement.focus();
+        return;
       }
-        console.log('email: ', this.email);
-        console.log('password: ', this.password);
+
+      if (form.controls.password.invalid) {
+        this.passwordInput.nativeElement.focus();
+        return;
+      }
+
+      return;
+    }
+
+    this.login();
   }
 
-  exibeErro(nomeControle: string, form: any){
-    if(!form.controls[nomeControle]){
+  login() {
+    this.estaCarregando = true;
+
+    this.loginService.logar(this.email, this.password)
+      .pipe(
+        finalize(() => this.estaCarregando = false)
+      )
+      .subscribe(
+        (response: any) => this.onSuccessLogin(),
+        (error: any) => this.onErrorLogin(),
+      );
+  }
+
+  onSuccessLogin() {
+    this.router.navigate(['home']);
+  }
+
+  onErrorLogin() {
+    this.erroNoLogin = true;
+  }
+
+  exibeErro(nomeControle: string, form: NgForm) {
+    if (!form.controls[nomeControle]) {
       return false;
     }
+
     return form.controls[nomeControle].invalid && form.controls[nomeControle].touched;
   }
-
-  
-  login(){
-    this.loginService.logar; null; (this.email, this.password)
-    .subscribe(
-      (response: any)=>{
-        console.log("logou")
-      },
-      (error:any) =>{
-        console.log("nao logou")
-      },
-    )
-  }
-  
 
 }
