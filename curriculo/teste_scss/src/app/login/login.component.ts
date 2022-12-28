@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +13,41 @@ import { FormGroup } from '@angular/forms';
 
 
 
-export class LoginComponent implements OnInit {
+export class LoginComponent{
 
-    email: string | undefined
-    password: string | undefined
+  @ViewChild('emailInput') emailInput: any;
+  @ViewChild('passwordInput') passwordInput: any;
 
-  constructor() { }
-    ngOnInit(): void {
+    email: any 
+    password: any 
+
+    estaCarregando: boolean | undefined;
+    erroNoLogin: boolean | undefined;
+    response: any;
+    error: any;
+
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+  ) { }
+    ngOnInit(): void 
+    {
   }
 
   onSubmit(form: any){
       if(!form.valid){
-        form.controls.email.marksAsTouched();
-        form.controls.password.marksAsTouched();
-        
+        form.controls.email.markAsTouched();
+        form.controls.password.markAsTouched();
+
+        if(form.controls.email.invalid){
+          this.emailInput.nativeElement.focus();
+          return
+        }
+        if (form.controls.password.invalid) {
+          this.passwordInput.nativeElement.focus();
+          return;
+        } 
+
         console.log(form)
         console.log('Formulario inválido doido!')
         return ;
@@ -38,5 +62,19 @@ export class LoginComponent implements OnInit {
     }
     return form.controls[nomeControle].invalid && form.controls[nomeControle].touched;
   }
+
+  
+  login(){
+    this.loginService.logar; null; (this.email, this.password)
+    .subscribe(
+      (response: any)=>{
+        console.log("logou")
+      },
+      (error:any) =>{
+        console.log("nao logou")
+      },
+    )
+  }
+  
 
 }
