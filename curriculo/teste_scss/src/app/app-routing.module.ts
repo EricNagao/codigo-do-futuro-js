@@ -6,15 +6,18 @@ import { ExtratpComponent } from './extratp/extratp.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
-import { EstaLogadoGuard } from './shared/guards/esta-logado.guard';
+import { EstaLogadoGuard } from './shared/guards/Logado/esta-logado.guard';
+import { NaoEstaLogadoGuard } from './shared/guards/nao logado/nao-esta-logado.guard';
 
 const routes: Routes = [ {
       path: 'home',
       component: HomeComponent,
-      canActivate: [EstaLogadoGuard], 
+      canActivate: [EstaLogadoGuard],
     }, {
       path: 'extrato',
       component: ExtratpComponent,
+      canActivate: [EstaLogadoGuard],
+
     }, {
       path: '',
       redirectTo: 'home',
@@ -22,9 +25,12 @@ const routes: Routes = [ {
     },{
       path: 'login',
       component: LoginComponent,
+      canActivate: [NaoEstaLogadoGuard]
     },{
     path: 'contatos',
     component: ContatosComponent,
+    canActivate: [EstaLogadoGuard],
+
     },{
       path: 'contatos/:id',
       component: DetalhesContatoComponent

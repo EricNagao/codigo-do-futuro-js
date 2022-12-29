@@ -49,7 +49,7 @@ export class AuthService {
 
 
   estaLogado(): boolean{
-    return this.getUsuario()&& this.getToken() ? true : false; //perador ternario, se get user e tokerm se forem verdade, retornan verdade , se nao, falso.
+    return this.getUsuario() && this.getToken() ? true : false; //perador ternario, se get user e tokerm se forem verdade, retornan verdade , se nao, falso.
   }
 
 }
