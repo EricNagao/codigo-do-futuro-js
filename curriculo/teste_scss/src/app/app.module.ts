@@ -11,10 +11,7 @@ import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.componen
 import { FooterComponent } from './shared/footer/footer.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { SharedModule } from './shared/shared.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { ContatosComponent } from './contatos/contatos.component';
-import { DetalhesContatoComponent } from './contatos/detalhes-contato/detalhes-contato.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -25,15 +22,13 @@ registerLocaleData(localePt, 'pt');
     {
         declarations: [
             AppComponent,
-            HomeComponent,
             LoginComponent,
             ExtratpComponent,
             NaoEncontradoComponent,
             HeaderComponent,
             FooterComponent,
             CadastroComponent,
-            ContatosComponent,
-            DetalhesContatoComponent,
+            
         ],
         
         imports: [

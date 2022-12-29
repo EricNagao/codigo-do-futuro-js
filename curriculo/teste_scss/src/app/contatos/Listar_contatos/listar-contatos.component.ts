@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { finalize, pipe, take } from 'rxjs';
-import { Contato } from './contato.interface';
-import { ContatoService } from './contato.service';
+import { Contato } from '../contato.interface';
+import { ContatoService } from '../contato.service';
 
 @Component({
   selector: 'app-contatos',
-  templateUrl: './contatos.component.html',
-  styleUrls: ['./contatos.component.scss']
+  templateUrl: './listar-contatos.html',
+  styleUrls: ['./listar-contatos.component.scss']
 })
-export class ContatosComponent implements OnInit {
+export class listarContatosComponent implements OnInit {
   estaCarregando: boolean = false;
   erroNoCarregamento: boolean = false;
   contatos: Contato[] | undefined;
