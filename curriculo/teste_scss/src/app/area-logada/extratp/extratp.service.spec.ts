@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ExtratoService } from './extrato.service';
+import { ExtratoService } from './extratp.service';
 
 describe('ExtratoService', () => {
   let service: ExtratoService;

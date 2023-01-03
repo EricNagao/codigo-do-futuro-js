@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
-import { ExtratoService } from './extrato.service';
+import { ExtratoService } from './extratp.service';
 import { Transacao } from './extratp.interface';
 
 
