@@ -3,7 +3,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-
 import { ExercicioContadorComponent } from './exercicio-contador/exercicio-contador.component';
 import { ExercicioDataBindingComponent } from './exercicio-data-binding/exercicio-data-binding.component';
 import { ExercicioDiretirvasComponent } from './exercicio-diretirvas/exercicio-diretirvas.component';
