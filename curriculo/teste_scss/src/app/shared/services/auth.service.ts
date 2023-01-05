@@ -1,55 +1,69 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from '../interfaces/usuario.interface';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  usuario: Usuario | undefined;
-  token: string |undefined;
 
-  constructor() { }
+  usuario: Usuario | any;
+  token: any;
 
-  setUsuario(usuario: Usuario){
-    this.usuario= usuario;
-      localStorage.setItem('usuario',JSON.stringify(usuario));
+  constructor(
+    private router: Router,
+  ) { }
+
+  setUsuario(usuario: Usuario) {
+    this.usuario = usuario;
+    localStorage.setItem('usuario', JSON.stringify(usuario));
   }
 
-  getUsuario(){
+  getUsuario() {
+    if (this.usuario) {
+      return this.usuario;
+    }
+
     const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      this.usuario = JSON.parse(usuarioGuardado);
+      return this.usuario;
+    }
 
-      if(this.usuario){
-        return this.usuario;
-      }
-
-      if(usuarioGuardado){
-        this.usuario =JSON.parse(usuarioGuardado);
-        return JSON.parse(usuarioGuardado);
-      }
-      return null
+    return null;
   }
 
-  setToken(token: string){
-    this.token= token;
-      localStorage.setItem('token',token);
+  setToken(token: string) {
+    this.token = token;
+    localStorage.setItem('token', token);
   }
 
-  getToken(){
-    if(this.token){
+  getToken() {
+    if (this.token) {
       return this.token;
     }
-  
+
     const tokenGuardado = localStorage.getItem('token');
-    if(tokenGuardado){
-      this.token =tokenGuardado
-      return this.token
+    if (tokenGuardado) {
+      this.token = tokenGuardado;
+      return this.token;
     }
-    return null
+    return null;
   }
 
-
-  estaLogado(): boolean{
-    return this.getUsuario() && this.getToken() ? true : false; //operador ternario, se get user e tokerm se forem verdade, retornan verdade , se nao, falso.
+estaLogado(): boolean {
+    if (this.getUsuario() && this.getToken()) {
+      return true;
+    }
+    return false;
   }
 
+  logout() {
+    this.usuario = null;
+    this.token = null;
+    localStorage.clear();
+    this.router.navigate(['login']);
+  }
 }

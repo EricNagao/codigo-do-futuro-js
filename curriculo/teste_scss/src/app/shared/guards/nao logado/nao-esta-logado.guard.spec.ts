@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { NaoEstaLogadoGuard } from './nao-esta-logado.guard';
 
-describe('NEstaLogadoGuard', () => {
+describe('NaoEstaLogadoGuard', () => {
   let guard: NaoEstaLogadoGuard;
 
   beforeEach(() => {

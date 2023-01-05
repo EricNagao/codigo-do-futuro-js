@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { listarContatosComponent } from './Listar_contatos/listar-contatos.component';
+
 import { DetalhesContatoComponent } from './detalhes-contato/detalhes-contato.component';
+import { listarContatosComponent } from './Listar_contatos/listar-contatos.component';
+
 
 const routes: Routes = [{
-  path:'',
+  path: '',
+  component:listarContatosComponent,
+}, {
+  path: 'novo',
   component: listarContatosComponent
-},{
-  path:'id',
+}, {
+  path: ':id',
   component: DetalhesContatoComponent,
+}, {
+  path: ':id/editar',
+  component:DetalhesContatoComponent
 
 }];
 

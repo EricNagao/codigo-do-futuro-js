@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
     this.usuario = this.authService.getUsuario();
   }
 
+  abrirModal(){
+  console.log("abrir modal")
+  }
+
 }

@@ -1,27 +1,19 @@
-<header class ="header">
+<header class="header">
 
-  <h1 class = "header__title">  </h1>
-  <h2> Welcome Header's Hama :)! </h2>
-  
-  <ul class="nav-bar-list"> 
-  
-     <!--<li>tem essas 2 opções, a opção de cima e a comentada
-      <a routerLink=" " routerLinkActive="ativado" [routerLinkActiveOptions]="{exact:true}">Home </a>
-    </li>-->
+  <h1 class="header__title"> {{ title }} </h1>
 
-
-    <li> 
-      <a routerLink="home" routerLinkActive="ativado">Home</a>
+  <ul class="nav-bar-list">
+    <li>
+      <a routerLink="/home"routerLinkActive="ativado"> Home </a>
     </li>
     <li>
-      <a routerLink="extrato" routerLinkActive="ativado"> Extrato</a>
-    </li>  
-    <li>
-      <a routerLink="contatos" routerLinkActive="ativado">Contato</a>  
+      <a routerLink="/extrato" routerLinkActive="ativado"> Extrato </a>
     </li>
     <li>
-      <a routerLink="login" routerLinkActive="ativado">Login</a>  
+      <a routerLink="/contatos" routerLinkActive="ativado"> Contatos </a>
+    </li>
+    <li>
+      <button class="btn btn-dark" (click)="logout()">Logout</button>
     </li>
   </ul>
-  
-  </header>
+</header>

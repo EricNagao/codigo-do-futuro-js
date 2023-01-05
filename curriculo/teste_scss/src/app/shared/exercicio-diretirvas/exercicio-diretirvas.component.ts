@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { MEMES_AGRUPADOS_POR_CATEGORIA } from './exercicios-diretivas-constants';
 
 @Component({

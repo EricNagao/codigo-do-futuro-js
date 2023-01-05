@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AreaLogadaComponent } from './area-logada.component';
 
 const routes: Routes = [{
-  path: '',
+  path  : '',
   component: AreaLogadaComponent,
   children: [{
         path: 'home',

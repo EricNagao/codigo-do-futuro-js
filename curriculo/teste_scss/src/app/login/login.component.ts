@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 import { LoginService } from './login.service';
@@ -10,24 +11,23 @@ import { LoginService } from './login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent { 
+export class LoginComponent {
 
   @ViewChild('emailInput') emailInput: ElementRef | any;
   @ViewChild('passwordInput') passwordInput: ElementRef | any;
 
-  email: any | undefined;
-  password: any | undefined;
+  email: string | any;
+  password: string | any;
 
-  estaCarregando: boolean| undefined;
-  erroNoLogin: boolean| undefined;
-
+  estaCarregando: boolean | undefined;
+  erroNoLogin: boolean | undefined;
 
   constructor(
     private loginService: LoginService,
     private router: Router,
   ) { }
 
-  onSubmit(form:any) {
+  onSubmit(form: any) {
     this.erroNoLogin = false;
 
     if (!form.valid) {
@@ -58,8 +58,8 @@ export class LoginComponent {
         finalize(() => this.estaCarregando = false)
       )
       .subscribe(
-        (response: any) => this.onSuccessLogin(),
-        (error: any) => this.onErrorLogin(),
+        response => this.onSuccessLogin(),
+        error => this.onErrorLogin(),
       );
   }
 
