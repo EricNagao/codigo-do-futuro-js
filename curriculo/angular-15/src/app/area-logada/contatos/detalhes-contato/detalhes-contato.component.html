@@ -1,0 +1,17 @@
+<div class="container text-center p5" >
+
+  <div class ="spinner-border" role="status" *ngIf="estaCarregando">
+    <span class="sr-only"> loading...</span>
+  </div>
+  
+  <br>
+
+  <button class="btn btn-primary" (click)="voltar()">Voltar </button>
+
+    <p>Nome: {{contato.nome}} </p>
+    <p>CPF {{contato.cpf}} </p>
+    <p>Banco {{contato.banco}}</p>
+    <p>Agencia {{contato.ag}}</p>
+    <p>CC {{contato.cc}} </p>
+
+
